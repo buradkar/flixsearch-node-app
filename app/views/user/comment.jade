@@ -1,0 +1,22 @@
+extends ../layout
+block content 
+  div.row
+    div.span12
+      center
+        img#front_heading(src="/img/front_heading.png", alt="Netflix Instant Catalog Search")
+  div.row
+    div.span12
+        h4 Comments
+        form#commentForm
+          textarea(rows="4", name="text", placeholder="Enter your comments here....")
+          br
+          button.btn(type="submit") Add Comment
+
+    div.span12
+      small
+        div#comments-div 
+
+  script(type='text/javascript')
+    $(document).ready(function() {
+        FeedbackPage.enable();        
+    });

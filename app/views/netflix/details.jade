@@ -1,0 +1,53 @@
+extends ../layout
+
+block content  
+  div.container-fluid
+    div.row-fluid
+      div#side-bar.span3
+        div.well
+          ul.nav.nav-list
+            li.nav-header Filter By
+            li 
+              a.side-bar-field(href="#", data-original-title="Expiring in next 90 days. Sorting is disabled in this mode")             
+                input#side-bar-expiring-soon.side-bar-checkbox(type="checkbox")
+                span &nbsp;&nbsp;  
+                    span Expiring Soon
+            li
+              a.side-bar-field(href="#") Categories
+                i.icon-chevron-right
+              div#side-bar-genres.side-bar-div
+            li
+              a.side-bar-field(href="#") Average Rating
+                i.icon-chevron-right
+              div#side-bar-averageRatings.side-bar-div
+            li 
+              a.side-bar-field(href="#") Release Year
+                i.icon-chevron-right
+              div#side-bar-releaseYears.side-bar-div
+
+      div.span9
+          table#results-table.table
+            thead
+              th(width="20%")
+                a.sortable(href="#", value="title") Title
+                  i.icon-arrow-both
+              th(width="10%") 
+                a.sortable(href="#", value="releaseYear") Year
+                  i.icon-arrow-both
+              th(width="12%") 
+                a.sortable(href="#", value="averageRating") Rating
+                  i.icon-arrow-both
+              th(width="58%")
+                a.unsortable(href="#", value="synopsis")
+                  span Synopsis
+            tbody
+    div.row-fluid
+      div#results-table-loading-indicator-div.offset3.span1
+        img(src="/img/spinner.gif", alt="Loading.....", style="margin-left:10px;")
+
+  script(type='text/javascript')
+      $(document).ready(function() {
+          var DetailsPageSearchParam = !{JSON.stringify(model.searchParam)} || {};
+          DetailsPage.initalize("#{model.tagName}", DetailsPageSearchParam)
+          DetailsPage.enable();
+      });

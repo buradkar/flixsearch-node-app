@@ -1,0 +1,40 @@
+extends ../layout
+block content 
+  div.row
+    div.span12
+      center
+        img(src="/img/front_heading.png", alt="Netflix Instant Catalog Search", style="margin-bottom:10px;")
+  div.row
+    div.offset2.span10
+      form#searchForm.form-inline(action="/catalog/details")
+        input.span8.typeahead(type="text", name="searchQuery", autocomplete="off", placeholder="Search for Movie, Cast, Director.....")
+        button.btn.btn-primary
+          i.icon-search.icon-white
+  div.row
+    div.offset1.span11
+      span#tag-results-column0.span2
+      span#tag-results-column1.span2
+      span#tag-results-column2.span2
+      span#tag-results-column3.span2
+      span#tag-results-column4.span2
+  hr(style="margin:10px;")
+  div.row(style="display:none;")
+    div#tag-details-hidden-column1.tag-details-hidden(col="1")
+    div#tag-details-hidden-column2.tag-details-hidden(col="2")
+    div#tag-details-hidden-column3.tag-details-hidden(col="3")
+    div#tag-details-hidden-column4.tag-details-hidden(col="4")
+  div.row
+    div#tag-details
+      div#tag-details-results-column1.span3.tag-details-columns
+      div#tag-details-results-column2.span3.tag-details-columns
+      div#tag-details-results-column3.span3.tag-details-columns
+      div#tag-details-results-column4.span3.tag-details-columns
+  div.row
+    div#tag-loading-indicator-div.span1
+      img(src="/img/spinner.gif", alt="Loading.....", style="margin-left:10px;")
+
+     
+  script(type='text/javascript')
+    $(document).ready(function() {
+        IndexPage.enable();        
+    });

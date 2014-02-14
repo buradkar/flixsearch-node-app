@@ -1,0 +1,60 @@
+doctype 5
+html
+  head
+    - if (typeof(title) !== 'undefined'){
+      title= (title || 'FlixSear.ch - Netflix Instant Catalog search')
+    -} 
+    -else {
+      title FlixSear.ch - Netflix Instant Catalog search
+    -}
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/app.min.css')
+    link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='/favicon.ico', type='image/x-icon')
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(type='text/javascript', src='/js/underscore-min.js')
+    script(type='text/javascript', src='/js/moment.min.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/app.min.js')
+    script(type='text/javascript', src='http://jsapi.netflix.com/us/api/js/api.js')    
+  body
+    div.container
+      div.row.navbar
+        div.span12
+          a.logo(href="/")
+            img(src="/img/logo.png", alt="FlixSear.ch")
+          a.link(href="/") Home
+          //- a.link(href="/faq") FAQ
+          a.link(href="/about") About Us          
+          div#navbar-position-marker
+            div.float
+              table
+                tr
+                  td
+                    //- div#fb-root
+                    div.fb-like(data-send="true", data-layout="button_count", data-width="450", data-show-faces="true", data-font="arial")
+                  td
+                    a.btn.btn-success(href="/feedback") Feedback 
+   
+      block content
+      div.row.footer
+        div.span12
+          center
+            span.muted
+              small Help Us Improve. Please give us  
+                a(href="/feedback") feedback  
+                span or contact us at  
+                a(href="mailto:flixsearch@gmail.com") flixsearch@gmail.com
+
+    script(type="text/javascript")
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39734275-1']);
+      _gaq.push(['_setDomainName', 'flixsear.ch']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
